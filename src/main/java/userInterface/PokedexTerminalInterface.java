@@ -1,11 +1,10 @@
-package pokedexDatabase.userInterface;
+package userInterface;
 
 import entidades.*;
-import pokedexDatabase.ListGetters;
 
 import java.util.ArrayList;
 
-public class PokemonInterface {
+public class PokedexTerminalInterface {
 
     public void abilities(String pokemonName,ArrayList<PokemonAbility> abilities ){
 
@@ -54,12 +53,22 @@ public class PokemonInterface {
             printTypes(evolution.getTypes());
         }
 
+        if(evolutions.size()==0){
+            System.out.print("\nThere're no evolutions to show!. Feel free to add new evolutions to your Pokemon!");
+
+        }
+
 
     }
 
     private void printTypes(ArrayList<PokemonType> types){
         for(int i=0; i<types.size();i++){
             System.out.print("\n\t"+ types.get(i));
+        }
+
+        if(types.size()==0){
+            System.out.print("\nThere're no types to show!. Feel free to add new types to your Pokemon!");
+
         }
     }
 

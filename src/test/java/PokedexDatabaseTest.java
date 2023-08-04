@@ -74,7 +74,7 @@ public class PokedexDatabaseTest {
     public void addPokemonEvolutionTest() throws Exception {
         database.loadWorld();
         //le puedo agregar los types que quiera al evolution, una vez instanciado, ahora no le agrego nada
-        database.addPokemonEvolution(new PokemonEvolution("evolution5", PokemonLevel.LEVEL4),"pokemon4");
+        database.addPokemonEvolution("evolution5","pokemon4");
 
         assertEquals(2,database.getPokemonEvolutions("pokemon4").size());
         assertEquals("evolution1",database.getPokemonEvolutions("pokemon4").get(0).getName());
@@ -125,6 +125,63 @@ public class PokedexDatabaseTest {
         pokemon = database.getPokemon("pokemon8");
         assertEquals("pokemon8", pokemon.getName());
         assertEquals(PokemonLevel.LEVEL0,pokemon.getLevel());
+    }
+
+
+    @Test
+    public void updateWorldTest() throws Exception {
+        database.loadWorld();
+        try {
+
+            database.getPokemon("pokecitoNuevo");
+
+        } catch (Exception e){
+
+            assertEquals("No se encontró pokemon", e.getMessage());
+
+            database.addNewPokemon("pokecitoNuevo");
+
+            database.addPokemonType(PokemonType.TYPE2, "pokecitoNuevo");
+
+            database.addPokemonType(PokemonType.TYPE3, "pokecitoNuevo");
+
+            database.addPokemonEvolution("evolution3","pokecitoNuevo");
+
+            database.addPokemonEvolution("evolution5","pokecitoNuevo");
+
+            database.updateWorld();
+
+            database.loadWorld();
+
+            Pokemon pokemon = database.getPokemon("pokecitoNuevo");
+
+            assertTrue(pokemon.nameEqualsTo("pokecitoNuevo"));
+
+        }
+        removeLoadedPokemonTest(); // escribo los datos, y luego ejecuto la prueba para borrarlos acá
+        //por única vez
+
+    }
+
+    public void removeLoadedPokemonTest() throws Exception {
+
+        database.loadWorld();
+
+        database.getPokemon("pokecitoNuevo");
+
+        database.removePokemon("pokecitoNuevo");
+
+        try {
+
+            database.getPokemon("pokecitoNuevo");
+
+        } catch (Exception e){
+
+            assertEquals("No se encontró pokemon", e.getMessage());
+
+        }
+
+        database.updateWorld();
     }
 
 }

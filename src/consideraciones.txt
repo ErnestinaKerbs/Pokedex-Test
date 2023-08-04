@@ -1,0 +1,42 @@
+Al crearse el mundo Pokedex:
+
+         -El usuario puede:
+
+            *agregar una nueva evolucion existente a un pokemon existente
+            *crear un nuevo pokemon (con nivel y habilidad default)
+            *agregar un tipo existente a un pokemon existente
+            *remover un pokemon existente
+            *consultas
+            *remover un tipo existente de un pokemon
+
+            en resumen, el usuario puede utilizar todas las funcionalidades que ofrece la clase Pokedex
+            ya que funciona como gestor entre la base de datos y la "interfaz"
+
+Aclaraciones sobre el desarrollo:
+
+    -Se toman de la base de datos la informacion de los pokemons preexistentes junto con sus habilidades, tipos
+     y evoluciones (hay que indicar el path relativo al proyecto de la base de datos en el constructor de Pokedex)
+
+    -Tal como indican los requerimientos, los pokemons contienen una lista de tipos al igual que las evoluciones
+     y yo asumo que corresponden a la misma enumeracion (PokemonType)
+
+    -Según mi interpretacion, considero que las evoluciones ya vienen seteadas en el sistema (dentro de evolutions.txt)
+     y el usuario del sistema no puede crear evoluciones nuevas. Lo mismo ocurre con las habilidades, niveles y tipos
+     pero estos vienen seteados en las enumeraciones correspondientes.
+     De modo que si se quiere agregar una evolucion nueva a un pokemon, el usuario debe conocer el nombre de esa
+     evolucion.
+
+     -para evitar colocacion de ids y complejizar la lecura del codigo realizo busquedas en las bases de datos por nombre
+      de modo que no se deben repetir los nombres de los pokemons ni de las evoluciones
+
+     -no modelé usuarios y sus pokemons pero perfectamente se podría agregar con 2 archivos nuevos en la base
+      de datos (usuarios.txt y usuarioXPokemon), sus fileHandlers correspondientes,un login en la clase Pokedex y la
+      instanciacion de una nueva lista de pokemons con los que le pertencen al usuario en cuestion.
+      Todas las consultas se harían solamente sobre esa lista, salvo cuando se pide ver los datos de TODOS los
+      pokemons del mundo.
+
+
+
+
+
+

@@ -90,7 +90,8 @@ public class PokedexDatabase {
         pokemon.removeType(typeToRemove);
     }
 
-    public void addPokemonEvolution(PokemonEvolution newEvolution, String pokemonName) throws Exception {
+    public void addPokemonEvolution(String evolutionName, String pokemonName) throws Exception {
+        PokemonEvolution newEvolution = listGetter.getPokemonEvolutionBy(evolutionName,evolutions);
         Pokemon pokemon = listGetter.getPokemonBy(pokemonName,pokemons);
         pokemon.addEvolution(newEvolution);
     }
@@ -116,5 +117,10 @@ public class PokedexDatabase {
 
     public Pokemon getPokemon(String pokemonName) throws Exception {
         return listGetter.getPokemonBy(pokemonName,pokemons);
+    }
+
+    public void removePokemon(String pokemonName) throws Exception {
+        Pokemon pokemon = listGetter.getPokemonBy(pokemonName, pokemons);
+        listGetter.removePokemonFromList(pokemon,pokemons);
     }
 }

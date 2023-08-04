@@ -1,11 +1,10 @@
-import entidades.PokemonLevel;
 import entidades.PokemonType;
 import pokedexDatabase.PokedexDatabase;
-import pokedexDatabase.userInterface.PokemonInterface;
+import userInterface.PokedexTerminalInterface;
 
 public class Pokedex {
 
-    private PokemonInterface pokemonInterface = new PokemonInterface();
+    private PokedexTerminalInterface pokemonInterface = new PokedexTerminalInterface();
     private String databasePath;
     private PokedexDatabase database;
 
@@ -65,4 +64,15 @@ public class Pokedex {
     }
 
 
+    public void removePokemonType(PokemonType pokemonType, String pokemonName) throws Exception {
+        database.removePokemonType(pokemonType,pokemonName);
+    }
+
+    public void addPokemonEvolution(String newEvolution, String pokemonName) throws Exception {
+        database.addPokemonEvolution(newEvolution,pokemonName);
+    }
+
+    public void removePokemon(String pokemonToRemove) throws Exception {
+        database.removePokemon(pokemonToRemove);
+    }
 }

@@ -1,5 +1,0 @@
-evolution1,LEVEL1
-evolution2,LEVEL2
-evolution3,LEVEL3
-evolution4,LEVEL4
-evolution5,LEVEL5

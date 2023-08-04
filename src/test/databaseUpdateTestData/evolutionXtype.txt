@@ -1,9 +1,0 @@
-evolution1,TYPE1
-evolution2,TYPE3
-evolution2,TYPE1
-evolution3,TYPE4
-evolution3,TYPE3
-evolution4,TYPE2
-evolution4,TYPE4
-evolution5,TYPE3
-evolution5,TYPE2
