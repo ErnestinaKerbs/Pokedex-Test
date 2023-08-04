@@ -1,16 +1,14 @@
 import entidades.PokemonLevel;
 import entidades.PokemonType;
 import pokedexDatabase.PokedexDatabase;
-import pokedexDatabase.userInterface.PokemonInterface;
+import userInterface.PokedexTerminalInterface;
 
 public class Pokedex {
 
-    private PokemonInterface pokemonInterface = new PokemonInterface();
-    private String databasePath;
+    private PokedexTerminalInterface pokemonInterface = new PokedexTerminalInterface();
     private PokedexDatabase database;
 
     public Pokedex(String databasePath){
-        this.databasePath = databasePath;
         database = new PokedexDatabase(databasePath);
         initializeWorld();
     }
@@ -59,10 +57,25 @@ public class Pokedex {
     }
 
     public void addNewPokemon(String name){
-        //considero que los pokemons encontrados se general con LEVEL0 y abilidades default
+        //considero que los pokemons encontrados se general con LEVEL0 y habilidades default
         database.addNewPokemon(name);
 
     }
 
 
+    public void removePokemonType(PokemonType pokemonType, String pokemonName) throws Exception {
+        database.removePokemonType(pokemonType,pokemonName);
+    }
+
+    public void addPokemonEvolution(String newEvolution, String pokemonName) throws Exception {
+        database.addPokemonEvolution(newEvolution,pokemonName);
+    }
+
+    public void removePokemon(String pokemonToRemove) throws Exception {
+        database.removePokemon(pokemonToRemove);
+    }
+
+    public void changePokemonLevel(PokemonLevel newLevel, String pokemonName) throws Exception {
+        database.changeLevel(newLevel, pokemonName);
+    }
 }

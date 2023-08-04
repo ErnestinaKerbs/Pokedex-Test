@@ -1,16 +1,15 @@
 package entidades;
 
 import pokedexDatabase.ListGetters;
-
 import java.util.ArrayList;
-import java.util.LinkedList;
+
 
 public class Pokemon {
     private String name;
-    private ArrayList<PokemonType> types = new ArrayList<PokemonType>();
+    private ArrayList<PokemonType> types = new ArrayList<>();
     private PokemonLevel actualLevel;
-    private ArrayList<PokemonAbility> abilities = new ArrayList<PokemonAbility>();
-    private ArrayList<PokemonEvolution> evolutions = new ArrayList<PokemonEvolution>();
+    private ArrayList<PokemonAbility> abilities = new ArrayList<>();
+    private ArrayList<PokemonEvolution> evolutions = new ArrayList<>();
 
     private ListGetters listGetter = new ListGetters();
 
@@ -64,7 +63,7 @@ public class Pokemon {
 
     public ArrayList<String> pokemonXevolutionToTxt(){
 
-        ArrayList<String> pokemonXevolution = new ArrayList<String>();
+        ArrayList<String> pokemonXevolution = new ArrayList<>();
 
         for (PokemonEvolution evolution: evolutions
              ) {
@@ -78,7 +77,7 @@ public class Pokemon {
 
     public ArrayList<String> pokemonXabilityToTxt(){
 
-        ArrayList<String> pokemonXability = new ArrayList<String>();
+        ArrayList<String> pokemonXability = new ArrayList<>();
 
         for (PokemonAbility ability: abilities
         ) {
@@ -93,7 +92,7 @@ public class Pokemon {
 
     public ArrayList<String> pokemonXtypeToTxt(){
 
-        ArrayList<String> pokemonXtype = new ArrayList<String>();
+        ArrayList<String> pokemonXtype = new ArrayList<>();
 
         for (PokemonType type: types
         ) {
@@ -107,5 +106,9 @@ public class Pokemon {
 
     public ArrayList<PokemonType> getTypes(){
         return types;
+    }
+
+    public void setLevel(PokemonLevel newLevel) {
+        this.actualLevel = newLevel;
     }
 }

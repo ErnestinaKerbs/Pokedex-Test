@@ -64,8 +64,8 @@ public class PokemonXAbilityData implements FileType {
             }
 
         }
-        buffer.flush(); // Asegurar que los datos se escriban en el disco
-        System.out.println("Archivo escrito correctamente.");
+        buffer.flush();
+        System.out.println("\n[INFO] File correctly loaded.");
 
     }
 

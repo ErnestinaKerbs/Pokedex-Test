@@ -42,4 +42,9 @@ public class ListGetters {
         //types.removeIf(type -> type.toString().equalsIgnoreCase(toRemove.toString()));
         types.removeIf(type->type.equals(toRemove));
     }
+
+    public void removePokemonFromList(Pokemon toRemove, ArrayList<Pokemon> pokemons){
+        //types.removeIf(type -> type.toString().equalsIgnoreCase(toRemove.toString()));
+        pokemons.removeIf(pokemon->pokemon.nameEqualsTo(toRemove.getName()));
+    }
 }
