@@ -2,9 +2,10 @@ package userInterface;
 
 import entidades.*;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class PokedexTerminalInterface {
+    private Scanner scanner = new Scanner(System.in);
 
     public void abilities(String pokemonName,ArrayList<PokemonAbility> abilities ){
 
